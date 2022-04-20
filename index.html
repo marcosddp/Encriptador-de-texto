@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="icon" type="image/x-icon" href="img/png-transparent-padlock-computer-icons-padlock-cdr-technic-logo.png">
+    <title>Encriptador de texto</title>
+  </head>
+  <body>
+    <header>
+      <h1><img src="img/logo.png" alt="logo" /></h1>
+    </header>
+    <main>
+      <div id="container-encryptor">
+
+        <div id="entry">
+            <div id="entry__input">
+                <!--<input type="text" value="Ingrese el texto aqui">-->
+                <textarea placeholder="Ingrese el texto aqui"></textarea>
+            </div>
+            <div id="entry__alert">
+                <p><img src="img/bi_exclamation-circle-fill.svg">Solo letras minúsculas y sin acentos</p>
+            </div>
+            <div id="entry_buttons">
+                <button id="encriptar">Encriptar</button>
+                <button id="desencriptar">Desencriptar</button>
+            </div>
+        </div>
+          
+        <div id="display">
+          <div id="inactive">
+            <img src="img/Muñeco.svg" alt="svg img" />
+            <div id="inactive__text">
+              <h3>Ningún mensaje fue encontrado</h3>
+              <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+          </div>
+
+          <!--<div id="active">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci
+            montes, sit et diam risus scelerisque vitae est. Tortor maecenas
+            nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla sit
+            elit. Libero, sodales duis fames id diam feugiat aliquet non
+            egestas.
+          </p>
+          <button>Copiar</button>
+        </div>-->
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
