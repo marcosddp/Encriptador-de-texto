@@ -4,7 +4,7 @@
 
 body {
   background: #f3f5fc;
-  hyphens: none;
+  //hyphens: none;
 }
 
 .hidden {
@@ -210,7 +210,10 @@ header {
       hyphens: none;
       color: var(--gray-400);
       
-    
+      #result{
+        hyphens:auto;
+        
+      }
 
       button {
         //position: absolute;
@@ -238,6 +241,7 @@ header {
           cursor: pointer;
         }
       }
+      
     }
     /*active*/
   }

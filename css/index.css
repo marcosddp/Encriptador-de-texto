@@ -167,7 +167,6 @@ body {
 
 body {
   background: #f3f5fc;
-  hyphens: none;
 }
 
 .hidden {
@@ -337,6 +336,9 @@ header h1 img {
   line-height: 150%;
   hyphens: none;
   color: var(--gray-400);
+}
+#container-encryptor #display #active #result {
+  hyphens: auto;
 }
 #container-encryptor #display #active button {
   margin-top: 25px;
