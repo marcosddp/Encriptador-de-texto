@@ -104,6 +104,8 @@
         }
 
         result.innerHTML = resultado;
+        string=""
+        resultado=""
       }
 
       function textLength(length, text) {
@@ -118,7 +120,7 @@
 
       function desencriptar() {
         let string = textarea.value;
-        //let aux = "";
+        
         let antiVocales = ["ai", "imes", "ober", "ufat", "enter"];
 
         for (let ant in antiVocales) {
@@ -134,6 +136,8 @@
 
         resultado = string;
         result.innerHTML = resultado;
+        string=""
+        resultado=""
       }
 
       function copy() {
