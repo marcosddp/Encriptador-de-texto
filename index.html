@@ -39,21 +39,21 @@
         </div>
 
         <div id="display">
-          <!--<div id="inactive">
+          <div id="inactive">
             <img src="img/Muñeco.svg" alt="svg img" />
             <div id="inactive__text">
               <h3>Ningún mensaje fue encontrado</h3>
               <p>Ingresa el texto que desees encriptar o desencriptar.</p>
             </div>
-          </div>-->
+          </div>
 
-          <div id="active">
+          <div id="active" class="hidden">
             <p id="result">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci
+              <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci
               montes, sit et diam risus scelerisque vitae est. Tortor maecenas
               nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla
               sit elit. Libero, sodales duis fames id diam feugiat aliquet non
-              egestas.
+              egestas.-->
             </p>
             <button id="copy">Copiar</button>
           </div>
@@ -63,10 +63,12 @@
 
     <script>
       let encriptarButton = document.getElementById("encriptar");
+      let activeDiv = document.getElementById("active");
+      let inactiveDiv = document.getElementById("inactive");
       let desencriptarButton = document.getElementById("desencriptar");
       let textarea = document.getElementById("textarea");
       let result = document.getElementById("result");
-      let resultado = "";
+
       let copyButton = document.getElementById("copy");
 
       /*La letra "e" es convertida para "enter"
@@ -75,8 +77,39 @@
                     La letra "o" es convertida para "ober"
                     La letra "u" es convertida para "ufat"*/
 
+      function copy() {
+        navigator.clipboard
+          .writeText(result.innerHTML)
+          .then(() => {
+            console.log("Text copied to clipboard...");
+          })
+          .catch((err) => {
+            console.log("Something went wrong", err);
+          });
+      }
+
+      async function timeWrite(resultado, result) {
+        let indexString = 0;
+        timer = await setInterval(() => {
+          if (indexString < resultado.length) {
+            result.innerHTML += resultado[indexString];
+          } else {
+            clearInterval(timer);
+
+            resultado = "";
+          }
+
+          indexString++;
+        }, 50);
+      }
+
       function encriptar() {
         let string = textarea.value;
+        let resultado = "";
+        result.innerHTML = "";
+
+        activeDiv.classList.remove("hidden");
+        inactiveDiv.classList.add("hidden");
 
         for (let index in string) {
           switch (string[index]) {
@@ -103,52 +136,65 @@
           }
         }
 
-        result.innerHTML = resultado;
-        string=""
-        resultado=""
+        timeWrite(resultado, result);
+
+        resultado = "";
+        string = "";
       }
 
-      function textLength(length, text) {
-        let r = "";
-        for (let i = 0; i < length; i++) {
-          if (text[i]) {
-            r += text[i];
-          }
-        }
-        return r;
-      }
-
-      function desencriptar() {
+      async function desencriptar() {
         let string = textarea.value;
-        
+        let indexString = 0;
+        let resultado = string;
+
         let antiVocales = ["ai", "imes", "ober", "ufat", "enter"];
+        result.innerHTML = "";
 
         for (let ant in antiVocales) {
-          let expReg=new RegExp(antiVocales[ant])
-      
-          while (expReg.test(string)) {
-           
-            string = string.replace(antiVocales[ant], antiVocales[ant][0]);
-            
-            
+          let expReg = new RegExp(antiVocales[ant]);
+
+          while (expReg.test(resultado)) {
+            resultado = resultado.replace(
+              antiVocales[ant],
+              antiVocales[ant][0]
+            );
           }
         }
 
-        resultado = string;
-        result.innerHTML = resultado;
-        string=""
-        resultado=""
-      }
+        if (string == resultado) {
+          activeDiv.classList.add("hidden");
+          inactiveDiv.classList.remove("hidden");
+        } else {
+          timeWrite(resultado, result);
+          activeDiv.classList.remove("hidden");
+          inactiveDiv.classList.add("hidden");
+        }
 
-      function copy() {
-        navigator.clipboard
-          .writeText(result.innerHTML)
-          .then(() => {
-            console.log("Text copied to clipboard...");
-          })
-          .catch((err) => {
-            console.log("Something went wrong", err);
-          });
+        string = "";
+        resultado = "";
+
+        /*timer = await setInterval(() => {
+         
+
+          if (indexString < string.length) {
+            result.innerHTML += string[indexString];
+            
+          } else {
+            clearInterval(timer);
+            resultado = string;
+
+            string = "";
+            resultado = "";
+          }
+
+          indexString++;
+
+        }, 50);*/
+
+        /* resultado = string;
+        //result.innerHTML = resultado;
+        string=""
+        resultado=""*/
       }
 
       encriptarButton.onclick = encriptar;
