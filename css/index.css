@@ -269,10 +269,15 @@ header h1 img {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
+  transition: 0.9s all;
   cursor: pointer;
 }
+#container-encryptor #entry #entry_buttons button:hover {
+  filter: brightness(1.19);
+}
 #container-encryptor #entry #entry_buttons button:active {
-  filter: brightness(1.1);
+  filter: brightness(0.7);
+  transform: scale(0.96);
 }
 #container-encryptor #entry #entry_buttons #encriptar {
   background-color: var(--dark-blue-300);
@@ -284,8 +289,7 @@ header h1 img {
   color: var(--dark-blue-300);
 }
 #container-encryptor #display {
-  max-width: 400px;
-  min-width: 285px;
+  width: 400px;
   height: 719px;
   /* White */
   background: #ffffff;
@@ -322,8 +326,10 @@ header h1 img {
   font-size: 16px;
 }
 #container-encryptor #display #active {
-  position: relative;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-family: var(--Inter);
   font-style: normal;
   font-weight: 400;
@@ -333,9 +339,7 @@ header h1 img {
   color: var(--gray-400);
 }
 #container-encryptor #display #active button {
-  position: absolute;
-  top: 100%;
-  transform: translateY(-100%);
+  margin-top: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -501,7 +505,6 @@ header h1 img {
     font-size: 16px;
   }
   #container-encryptor #display #active {
-    position: relative;
     height: 100%;
     font-family: var(--Inter);
     font-style: normal;
@@ -512,9 +515,6 @@ header h1 img {
     color: var(--gray-400);
   }
   #container-encryptor #display #active button {
-    position: absolute;
-    top: 100%;
-    transform: translateY(-100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -699,9 +699,6 @@ header h1 img {
     color: var(--gray-400);
   }
   #container-encryptor #display #active button {
-    position: absolute;
-    top: 100%;
-    transform: translateY(-100%);
     display: flex;
     justify-content: center;
     align-items: center;

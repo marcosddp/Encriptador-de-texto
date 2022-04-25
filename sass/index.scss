@@ -122,11 +122,19 @@ header {
         font-family: "Inter";
         font-style: normal;
         font-weight: 400;
+        transition: 0.9s all;
 
         cursor: pointer;
 
+        &:hover{
+          filter: brightness(1.19);
+        }
+
         &:active {
-          filter: brightness(1.1);
+          
+          filter: brightness(0.7);
+          transform: scale(0.96);
+         
         }
       }
 
@@ -146,8 +154,9 @@ header {
   /*display*/
   #display {
     //justify-self: end;
-    max-width: 400px;
-    min-width: 285px;
+    width: 400px;
+    
+   
     height: 719px;
     /* White */
     background: #ffffff;
@@ -188,9 +197,11 @@ header {
     /*active*/
     #active {
       //padding:32px 0;
-      position: relative;
+      //position: relative;
       height: 100%;
-
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
       font-family: var(--Inter);
       font-style: normal;
       font-weight: 400;
@@ -198,11 +209,14 @@ header {
       line-height: 150%;
       hyphens: none;
       color: var(--gray-400);
+      
+    
 
       button {
-        position: absolute;
-        top: 100%;
-        transform: translateY(-100%);
+        //position: absolute;
+        //top: 100%;
+        //transform: translateY(-100%);
+        margin-top:25px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -411,7 +425,7 @@ header {
       /*active*/
       #active {
         //padding:32px 0;
-        position: relative;
+     
         height: 100%;
 
         font-family: var(--Inter);
@@ -423,9 +437,7 @@ header {
         color: var(--gray-400);
 
         button {
-          position: absolute;
-          top: 100%;
-          transform: translateY(-100%);
+        
           display: flex;
           justify-content: center;
           align-items: center;
@@ -656,9 +668,7 @@ header {
         color: var(--gray-400);
 
         button {
-          position: absolute;
-          top: 100%;
-          transform: translateY(-100%);
+        
           display: flex;
           justify-content: center;
           align-items: center;
